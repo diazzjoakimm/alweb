@@ -1,4 +1,2 @@
-venv/ 
-**pycache**/ 
-venv/ 
-**pycache**/ 
+.DS_Store
+Thumbs.db

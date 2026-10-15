@@ -8,9 +8,7 @@
   var temaBtn = document.getElementById('tema');
 
   function temaActual() {
-    var t = root.getAttribute('data-theme');
-    if (t === 'dark' || t === 'light') { return t; }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
 
   if (temaBtn) {

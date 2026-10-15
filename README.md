@@ -1,63 +1,41 @@
 # Alweb
 
-Sitio web completo para un servicio de diseño web. Python (Flask) en el servidor, HTML con plantillas Jinja, CSS y JavaScript en archivos separados.
+Sitio web de Alweb en HTML, CSS y JavaScript puros. No usa Python ni ningún servidor.
 
-Todas las consultas terminan en WhatsApp: los botones de la página y el formulario abren un chat con el número configurado.
-
-## Cómo correrlo
-
-Necesitás Python 3.9 o más nuevo.
-
-```bash
-cd alweb
-python -m venv venv
-source venv/bin/activate        # en Windows: venv\Scripts\activate
-pip install -r requirements.txt
-python app.py
-```
-
-Abrí http://127.0.0.1:5000 en el navegador.
-
-Para desarrollar con recarga automática: `FLASK_DEBUG=1 python app.py` (en Windows PowerShell: `$env:FLASK_DEBUG=1; python app.py`).
-
-Importante: el HTML usa plantillas, así que no se puede abrir `templates/index.html` con doble clic. Hay que correr `app.py`.
+Todas las consultas terminan en WhatsApp: los botones y el formulario abren un chat con el número configurado.
 
 ## Estructura
 
 ```
 alweb/
-├── app.py              Servidor: página principal, enlaces de WhatsApp, página 404
-├── contenido.py        Textos, pros y contras, etapas, preguntas y datos de contacto
-├── requirements.txt
-├── templates/
-│   ├── index.html      Página principal
-│   ├── _casa.html      Ilustración de la portada (SVG)
-│   └── 404.html        Página de error
-└── static/
-    ├── css/style.css   Estilos y paleta de colores
-    ├── js/main.js      Menú móvil, modo claro/oscuro, formulario
-    └── img/favicon.svg
+├── netlify.toml            Le dice a Netlify que publique la carpeta public
+└── public/
+    ├── index.html          Página principal (acá están todos los textos)
+    ├── 404.html            Página de error
+    └── static/
+        ├── css/style.css   Estilos y colores
+        ├── js/main.js      Menú móvil, modo oscuro y formulario
+        └── img/            portada.jpg y favicon.svg
 ```
 
-## Qué cambiar
+## Verlo en tu compu
 
-1. **WhatsApp:** en `contenido.py`, bloque `NEGOCIO`. El número actual es +54 11 3859 9781 (`541138599781`). Si el enlace no abre el chat, probá con `5491138599781`, que es el formato de celular argentino.
-2. **Textos, pros y contras:** `contenido.py`.
-3. **Colores:** al principio de `static/css/style.css` están las variables de la paleta. Hay tres bloques: modo claro, modo oscuro automático y modo oscuro manual. Si cambiás un color, cambialo en los tres.
-4. **Textos de la portada:** en `templates/index.html`.
-
-## Cómo llegan las consultas
-
-- Los botones "Escribinos", "Pedir una propuesta", "Consultar por WhatsApp" y "Abrir chat" abren el chat de WhatsApp.
-- El formulario arma un mensaje con el nombre, lo que necesita la persona y su descripción, y abre WhatsApp con ese texto listo para enviar. No se guarda nada en el servidor.
+Abrí `public/index.html` con doble clic.
 
 ## Publicarlo
 
-Para producción no uses `python app.py`. Instalá un servidor como gunicorn y corré:
-
 ```bash
-pip install gunicorn
-gunicorn -w 2 app:app
+git add .
+git commit -m "Cambios"
+git push
 ```
 
-Ponelo detrás de Nginx o en un servicio de hosting que soporte Python, con HTTPS activado.
+Netlify (conectado a este repo, Publish directory `public`, Build command vacío) se actualiza solo.
+
+## Qué cambiar
+
+1. **Textos:** en `public/index.html`.
+2. **WhatsApp:** buscá `541138599781` en `public/index.html` y cambialo en todos los lugares. El número que se ve en pantalla (`+54 911 3859 9781`) también está ahí.
+3. **Colores:** al principio de `public/static/css/style.css`.
+4. **Imagen de la portada:** reemplazá `public/static/img/portada.jpg` por otra con el mismo nombre.
+5. **Año del pie de página:** está escrito en `public/index.html`, al final.
