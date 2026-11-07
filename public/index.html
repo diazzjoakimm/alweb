@@ -25,7 +25,9 @@
       <span>Alweb</span><small class="font-mono text-[.66rem] tracking-[.1em] text-muted max-[480px]:hidden">Diseño web</small>
     </a>
     <nav class="nav" id="menu" aria-label="Principal">
+      <a class="link" href="#servicios">Servicios</a>
       <a class="link" href="#proceso">Proceso</a>
+      <a class="link" href="#preguntas">Preguntas</a>
       <a class="link" href="#contacto">Contacto</a>
       <a class="btn btn-primary btn-sm" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">Escribinos</a>
     </nav>
@@ -42,27 +44,64 @@
 
 <main>
   <section class="pt-[clamp(40px,7vw,88px)] pb-[clamp(48px,7vw,96px)]" id="inicio">
-    <div class="wrap grid grid-cols-1 items-center gap-[clamp(32px,5vw,72px)] min-[901px]:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
+    <div class="wrap grid grid-cols-1 items-center gap-[clamp(32px,5vw,72px)] min-[901px]:grid-cols-[minmax(0,.95fr)_minmax(0,1.05fr)]">
       <div class="grid min-w-0 gap-7">
-        <p class="eyebrow">Diseño y desarrollo web</p>
-        <h1 class="font-display text-[clamp(2.6rem,6.2vw,4.9rem)] font-light leading-[1.02] tracking-[-.025em] text-balance">Tu página, <em class="font-normal not-italic text-accent">tu estilo.</em></h1>
-        <p class="max-w-[50ch] text-[1.15rem] text-muted">Sitios web claros, rápidos y bien terminados, para que te encuentren y te elijan.</p>
-        <div class="flex flex-wrap gap-3">
+        <p class="eyebrow entra" style="--i:0">Diseño y desarrollo web</p>
+        <h1 class="entra font-display text-[clamp(2.6rem,6.2vw,4.9rem)] font-light leading-[1.02] tracking-[-.025em] text-balance" style="--i:1">Tu página, <em class="font-normal not-italic text-accent">tu estilo.</em></h1>
+        <p class="entra max-w-[50ch] text-[1.15rem] text-muted" style="--i:2">Sitios web claros, rápidos y bien terminados, para que te encuentren y te elijan.</p>
+        <div class="entra flex flex-wrap gap-3" style="--i:3">
           <a class="btn btn-primary" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20pedir%20una%20propuesta%20para%20mi%20p%C3%A1gina%20web." target="_blank" rel="noopener">Pedir una propuesta</a>
           <a class="btn btn-ghost" href="#proceso">Cómo trabajamos</a>
         </div>
-        <ul class="grid gap-2 border-t border-line pt-6 font-mono text-[.78rem] tracking-[.04em] text-muted">
+        <ul class="entra grid gap-2 border-t border-line pt-6 font-mono text-[.78rem] tracking-[.04em] text-muted" style="--i:4">
           <li class="flex items-baseline gap-3 before:size-2 before:flex-none before:-translate-y-px before:bg-accent before:content-['']">Precio cerrado desde el primer día</li>
           <li class="flex items-baseline gap-3 before:size-2 before:flex-none before:-translate-y-px before:bg-accent before:content-['']">Primera versión en 3 a 7 días</li>
         </ul>
       </div>
-      <div class="min-w-0">
-        <img class="block h-auto w-full rounded" src="static/img/portada.jpg" width="1216" height="848" alt="Ejemplos de páginas web mostradas sobre un monitor">
+      <div class="entra relative min-w-0 pr-3 pb-3" style="--i:2">
+        <div class="absolute top-3 right-0 bottom-0 left-3 border border-accent" aria-hidden="true"></div>
+        <img class="relative block h-auto w-full rounded" src="static/img/portada.jpg" width="1216" height="848" alt="Ejemplos de páginas web mostradas sobre un monitor">
       </div>
     </div>
   </section>
 
-  <section class="bg-bg2 py-[clamp(56px,9vw,112px)]" id="proceso">
+  <section class="bg-bg2 py-[clamp(56px,9vw,112px)]" id="servicios">
+    <div class="wrap">
+      <div class="mb-[clamp(36px,5vw,64px)] grid max-w-[760px] gap-4">
+        <p class="eyebrow">Servicios</p>
+        <h2>Cuatro tipos de sitio, según lo que necesites</h2>
+      </div>
+      <div class="grid grid-cols-1 gap-x-[clamp(24px,4vw,64px)] gap-y-[clamp(28px,4vw,48px)] min-[761px]:grid-cols-2">
+
+        <article class="grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 hover:border-accent">
+          <h3>Página de presentación</h3>
+          <p class="max-w-[48ch] text-muted">Una sola página con lo esencial: quién sos, qué hacés y cómo contactarte.</p>
+          <a class="mt-1 w-fit font-medium text-accent underline underline-offset-4 hover:no-underline" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20de%20presentaci%C3%B3n." target="_blank" rel="noopener">Consultar por esta</a>
+        </article>
+
+        <article class="grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 hover:border-accent">
+          <h3>Sitio institucional</h3>
+          <p class="max-w-[48ch] text-muted">Varias secciones para mostrar tu empresa, tus servicios y tu equipo.</p>
+          <a class="mt-1 w-fit font-medium text-accent underline underline-offset-4 hover:no-underline" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20consultar%20por%20un%20sitio%20institucional." target="_blank" rel="noopener">Consultar por este</a>
+        </article>
+
+        <article class="grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 hover:border-accent">
+          <h3>Tienda online</h3>
+          <p class="max-w-[48ch] text-muted">Un catálogo de productos para que tus clientes elijan y te consulten.</p>
+          <a class="mt-1 w-fit font-medium text-accent underline underline-offset-4 hover:no-underline" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20consultar%20por%20una%20tienda%20online." target="_blank" rel="noopener">Consultar por esta</a>
+        </article>
+
+        <article class="grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 hover:border-accent">
+          <h3>Rediseño de tu sitio</h3>
+          <p class="max-w-[48ch] text-muted">Renovamos tu sitio actual para que se vea mejor, cargue rápido y se lea bien en el celular.</p>
+          <a class="mt-1 w-fit font-medium text-accent underline underline-offset-4 hover:no-underline" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20consultar%20por%20el%20redise%C3%B1o%20de%20mi%20sitio%20actual." target="_blank" rel="noopener">Consultar por este</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-[clamp(56px,9vw,112px)]" id="proceso">
     <div class="wrap">
       <div class="mb-[clamp(36px,5vw,64px)] grid max-w-[760px] gap-4">
         <p class="eyebrow">Cómo trabajamos</p>
@@ -70,30 +109,76 @@
       </div>
       <div class="grid grid-cols-1 gap-[clamp(24px,3vw,40px)] min-[561px]:grid-cols-2 min-[981px]:grid-cols-4">
 
-        <article class="relative grid content-start gap-3 border-t border-line pt-7 before:absolute before:-top-[5px] before:left-0 before:size-[9px] before:bg-accent before:content-['']">
+        <article class="relative grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 before:absolute before:-top-[5px] before:left-0 before:size-[9px] before:bg-accent before:transition-all before:duration-300 before:content-[''] hover:border-accent hover:before:-top-[7px] hover:before:size-[15px]">
           <div class="flex justify-between gap-3 font-mono text-[.74rem] uppercase tracking-[.1em] text-accent"><span>01</span><span>1 a 3 días</span></div>
           <h3>Terreno</h3>
           <p class="text-muted">Charlamos sobre tu negocio, tus ideas y colores, y acordamos un precio cerrado.</p>
         </article>
 
-        <article class="relative grid content-start gap-3 border-t border-line pt-7 before:absolute before:-top-[5px] before:left-0 before:size-[9px] before:bg-accent before:content-['']">
+        <article class="relative grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 before:absolute before:-top-[5px] before:left-0 before:size-[9px] before:bg-accent before:transition-all before:duration-300 before:content-[''] hover:border-accent hover:before:-top-[7px] hover:before:size-[15px]">
           <div class="flex justify-between gap-3 font-mono text-[.74rem] uppercase tracking-[.1em] text-accent"><span>02</span><span>4 a 5 días</span></div>
           <h3>Planos</h3>
           <p class="text-muted">Ordenamos tus textos e imágenes. Lo revisás antes de diseñar.</p>
         </article>
 
-        <article class="relative grid content-start gap-3 border-t border-line pt-7 before:absolute before:-top-[5px] before:left-0 before:size-[9px] before:bg-accent before:content-['']">
+        <article class="relative grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 before:absolute before:-top-[5px] before:left-0 before:size-[9px] before:bg-accent before:transition-all before:duration-300 before:content-[''] hover:border-accent hover:before:-top-[7px] hover:before:size-[15px]">
           <div class="flex justify-between gap-3 font-mono text-[.74rem] uppercase tracking-[.1em] text-accent"><span>03</span><span>1 a 2 semanas</span></div>
           <h3>Obra</h3>
           <p class="text-muted">Diseñamos y programamos, y te mostramos avances en un enlace de prueba.</p>
         </article>
 
-        <article class="relative grid content-start gap-3 border-t border-line pt-7 before:absolute before:-top-[5px] before:left-0 before:size-[9px] before:bg-accent before:content-['']">
+        <article class="relative grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 before:absolute before:-top-[5px] before:left-0 before:size-[9px] before:bg-accent before:transition-all before:duration-300 before:content-[''] hover:border-accent hover:before:-top-[7px] hover:before:size-[15px]">
           <div class="flex justify-between gap-3 font-mono text-[.74rem] uppercase tracking-[.1em] text-accent"><span>04</span><span>2 días</span></div>
           <h3>Entrega</h3>
           <p class="text-muted">Publicamos tu página, la probamos en celulares y computadoras, y te mandamos el link y el QR.</p>
         </article>
 
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg2 py-[clamp(56px,9vw,112px)]" id="preguntas">
+    <div class="wrap grid grid-cols-1 items-start gap-[clamp(36px,6vw,96px)] min-[901px]:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
+      <div class="grid max-w-[760px] gap-4">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Lo que suelen preguntarnos antes de empezar</h2>
+      </div>
+      <div class="grid">
+          <details class="group border-t border-line py-5 last:border-b">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[1.25rem] [&::-webkit-details-marker]:hidden">
+              ¿Cuánto cuesta?
+              <span class="flex-none font-mono text-accent transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 max-w-[60ch] text-muted">Acordamos un precio cerrado antes de empezar, así sabés cuánto es desde el primer día. Contanos tu idea por WhatsApp y te pasamos una propuesta.</p>
+          </details>
+          <details class="group border-t border-line py-5 last:border-b">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[1.25rem] [&::-webkit-details-marker]:hidden">
+              ¿Cuánto tarda?
+              <span class="flex-none font-mono text-accent transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 max-w-[60ch] text-muted">La primera versión llega en 3 a 7 días, en un enlace de prueba. El tiempo total depende de cuántas páginas tenga el sitio y de qué tan rápido nos pases textos e imágenes.</p>
+          </details>
+          <details class="group border-t border-line py-5 last:border-b">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[1.25rem] [&::-webkit-details-marker]:hidden">
+              ¿Tengo que tener los textos y las fotos listos?
+              <span class="flex-none font-mono text-accent transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 max-w-[60ch] text-muted">No hace falta que estén perfectos. En la etapa Planos los ordenamos y los revisás antes de que empecemos a diseñar.</p>
+          </details>
+          <details class="group border-t border-line py-5 last:border-b">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[1.25rem] [&::-webkit-details-marker]:hidden">
+              ¿Se va a ver bien en el celular?
+              <span class="flex-none font-mono text-accent transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 max-w-[60ch] text-muted">Sí. Antes de entregar, probamos la página en celulares y en computadoras.</p>
+          </details>
+          <details class="group border-t border-line py-5 last:border-b">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[1.25rem] [&::-webkit-details-marker]:hidden">
+              ¿Cómo empiezo?
+              <span class="flex-none font-mono text-accent transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 max-w-[60ch] text-muted">Escribinos por WhatsApp o completá el formulario de más abajo con una idea general. Te respondemos por ahí mismo.</p>
+          </details>
       </div>
     </div>
   </section>

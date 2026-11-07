@@ -36,6 +36,8 @@
   --font-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
 }
 
+@keyframes entrar{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
 @layer base{
   html{scroll-padding-top:72px}
   @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
@@ -50,6 +52,10 @@
 }
 
 @layer components{
+  /* Entrada de la portada: cada elemento usa --i (0, 1, 2...) para escalonarse */
+  .entra{animation:entrar .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 90ms)}
+  @media (prefers-reduced-motion:reduce){.entra{animation:none}}
+
   .wrap{width:100%;max-width:1200px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 
   .eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}

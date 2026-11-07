@@ -44,7 +44,7 @@ Netlify (Publish directory `public`, Build command `npm run build`, ambos ya def
 
 ## Qué cambiar
 
-1. **Textos:** en `public/index.html`.
+1. **Textos:** en `public/index.html`, incluidos los servicios y las preguntas frecuentes.
 2. **WhatsApp:** buscá `541138599781` en `public/index.html` y cambialo en todos los lugares. El número visible (`+54 911 3859 9781`) también está ahí.
 3. **Colores:** variables al principio de `src/input.css`. Hay un bloque para modo claro y otro para oscuro. En el HTML se usan como `bg-bg`, `text-muted`, `border-line`, `text-accent`.
 4. **Imagen de la portada:** reemplazá `public/static/img/portada.jpg` por otra con el mismo nombre.
