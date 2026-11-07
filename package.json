@@ -1,0 +1,12 @@
+{
+  "name": "alweb",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./public/static/css/style.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./public/static/css/style.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}

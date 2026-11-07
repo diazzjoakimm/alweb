@@ -1,0 +1,89 @@
+/* Alweb · Tailwind CSS v4
+   Concepto: el sitio web como una casa moderna. Hormigón, gris piedra, carbón y azul pizarra.
+   Los colores viven en las variables de abajo (modo claro y modo oscuro) y Tailwind los usa
+   como bg-bg, text-fg, border-line, text-accent, etc. Para cambiar la paleta, editá solo esas variables. */
+
+@import "tailwindcss";
+@source "../public/**/*.html";
+
+:root{
+  --bg:#ECEDEE; --bg-2:#E1E3E5; --surface:#F7F8F8;
+  --fg:#1C2023; --muted:#596168; --line:#CDD0D3;
+  --accent:#3B5670; --accent-ink:#F7F8F8;
+  --danger:#A32F2F;
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --bg:#121517; --bg-2:#181C1F; --surface:#1C2125;
+  --fg:#ECEEEF; --muted:#9FA6AC; --line:#2D3338;
+  --accent:#8FAFCB; --accent-ink:#101417;
+  --danger:#F0A8A8;
+  color-scheme:dark;
+}
+
+@theme inline{
+  --color-bg:var(--bg);
+  --color-bg2:var(--bg-2);
+  --color-surface:var(--surface);
+  --color-fg:var(--fg);
+  --color-muted:var(--muted);
+  --color-line:var(--line);
+  --color-accent:var(--accent);
+  --color-accent-ink:var(--accent-ink);
+  --color-danger:var(--danger);
+  --font-display:'Jost','Helvetica Neue',Arial,sans-serif;
+  --font-body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+
+@layer base{
+  html{scroll-padding-top:72px}
+  @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+  body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+  h2{font-family:var(--font-display);font-weight:300;font-size:clamp(1.95rem,3.8vw,3rem);line-height:1.1;letter-spacing:-.015em;text-wrap:balance}
+  h3{font-family:var(--font-display);font-weight:400;font-size:1.45rem;line-height:1.2}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:2px;padding:12px 14px}
+  textarea{min-height:120px;resize:vertical}
+  input:focus-visible,select:focus-visible,textarea:focus-visible{outline-offset:1px;border-color:var(--accent)}
+  [aria-invalid="true"]{border-color:var(--danger)}
+}
+
+@layer components{
+  .wrap{width:100%;max-width:1200px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+  .eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:2px;border:1px solid transparent;font:500 .95rem/1.2 var(--font-body);letter-spacing:.01em;text-decoration:none;cursor:pointer;transition:filter .2s,border-color .2s}
+  .btn:hover{filter:brightness(1.1)}
+  .btn:disabled{opacity:.6;cursor:progress}
+  .btn-primary{background:var(--accent);color:var(--accent-ink)}
+  .btn-ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--fg);filter:none}
+  .btn-sm{padding:9px 16px;font-size:.88rem}
+
+  .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--line);border-radius:2px;background:transparent;color:var(--fg);cursor:pointer;transition:border-color .2s}
+  .icon-btn:hover{border-color:var(--fg)}
+
+  /* Menú: main.js agrega .open y .is-active */
+  .nav{display:flex;align-items:center;gap:28px}
+  .nav a.link{text-decoration:none;font-size:.92rem;color:var(--muted);transition:color .2s}
+  .nav a.link:hover,.nav a.link.is-active{color:var(--fg)}
+  .nav-toggle{display:none}
+  @media (max-width:860px){
+    .nav-toggle{display:inline-flex}
+    .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;padding:8px max(16px,env(safe-area-inset-right,0px)) 20px max(16px,env(safe-area-inset-left,0px));background:var(--bg);border-bottom:1px solid var(--line)}
+    .nav.open{display:flex}
+    .nav a.link{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:1rem}
+    .nav .btn{margin-top:16px}
+  }
+
+  /* Mensajes del formulario: main.js los crea y cambia */
+  .error{font-size:.86rem;color:var(--danger)}
+  .form-status{font-size:.95rem}
+  .form-status:empty{display:none}
+  .form-status.ok{color:var(--accent)}
+  .form-status.error{color:var(--danger)}
+  .form-status a{color:inherit;text-decoration:underline}
+}
