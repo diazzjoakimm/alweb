@@ -68,6 +68,43 @@
     });
   }
 
+  /* ---------- Aparecer al hacer scroll ---------- */
+  var revelar = document.querySelectorAll('.revela');
+  if ('IntersectionObserver' in window) {
+    var visor = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          visor.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+    revelar.forEach(function (el) { visor.observe(el); });
+  } else {
+    revelar.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* ---------- Brillo que sigue al cursor en las tarjetas ---------- */
+  document.querySelectorAll('.glow').forEach(function (tarjeta) {
+    tarjeta.addEventListener('pointermove', function (ev) {
+      var r = tarjeta.getBoundingClientRect();
+      tarjeta.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+      tarjeta.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+    });
+  });
+
+  /* ---------- Inclinación 3D de la imagen de la portada ---------- */
+  var foto = document.querySelector('[data-tilt]');
+  if (foto && window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
+    foto.addEventListener('pointermove', function (ev) {
+      var r = foto.getBoundingClientRect();
+      var x = (ev.clientX - r.left) / r.width - 0.5;
+      var y = (ev.clientY - r.top) / r.height - 0.5;
+      foto.style.transform = 'perspective(1000px) rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 8) + 'deg)';
+    });
+    foto.addEventListener('pointerleave', function () { foto.style.transform = ''; });
+  }
+
   /* ---------- Formulario: arma el mensaje y abre WhatsApp ---------- */
   var form = document.getElementById('form-contacto');
   if (!form) { return; }

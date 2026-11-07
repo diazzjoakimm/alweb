@@ -1,5 +1,5 @@
 /* Alweb · Tailwind CSS v4
-   Concepto: el sitio web como una casa moderna. Hormigón, gris piedra, carbón y azul pizarra.
+   Estilo: limpio y elegante, con mucho aire, tipografía grande y animaciones suaves.
    Los colores viven en las variables de abajo (modo claro y modo oscuro) y Tailwind los usa
    como bg-bg, text-fg, border-line, text-accent, etc. Para cambiar la paleta, editá solo esas variables. */
 
@@ -7,17 +7,17 @@
 @source "../public/**/*.html";
 
 :root{
-  --bg:#ECEDEE; --bg-2:#E1E3E5; --surface:#F7F8F8;
-  --fg:#1C2023; --muted:#596168; --line:#CDD0D3;
-  --accent:#3B5670; --accent-ink:#F7F8F8;
-  --danger:#A32F2F;
+  --bg:#FFFFFF; --bg-2:#F5F5F7; --surface:#FFFFFF;
+  --fg:#1D1D1F; --muted:#6E6E73; --line:#D2D2D7;
+  --accent:#0071E3; --accent-ink:#FFFFFF;
+  --danger:#D70015;
   color-scheme:light;
 }
 :root[data-theme="dark"]{
-  --bg:#121517; --bg-2:#181C1F; --surface:#1C2125;
-  --fg:#ECEEEF; --muted:#9FA6AC; --line:#2D3338;
-  --accent:#8FAFCB; --accent-ink:#101417;
-  --danger:#F0A8A8;
+  --bg:#000000; --bg-2:#111113; --surface:#1C1C1E;
+  --fg:#F5F5F7; --muted:#A1A1A6; --line:#38383A;
+  --accent:#2997FF; --accent-ink:#FFFFFF;
+  --danger:#FF6961;
   color-scheme:dark;
 }
 
@@ -31,21 +31,24 @@
   --color-accent:var(--accent);
   --color-accent-ink:var(--accent-ink);
   --color-danger:var(--danger);
-  --font-display:'Jost','Helvetica Neue',Arial,sans-serif;
-  --font-body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --font-mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --font-display:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter','Helvetica Neue',Arial,sans-serif;
+  --font-body:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter','Helvetica Neue',Arial,sans-serif;
+  --font-mono:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter','Helvetica Neue',Arial,sans-serif;
 }
 
-@keyframes entrar{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes entrar{from{opacity:0;transform:translateY(36px);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes entrar-lado{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:none}}
+@keyframes zoom{from{transform:scale(.86);opacity:.5}to{transform:scale(1);opacity:1}}
+@keyframes crece{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 
 @layer base{
   html{scroll-padding-top:72px}
   @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-  body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
-  h2{font-family:var(--font-display);font-weight:300;font-size:clamp(1.95rem,3.8vw,3rem);line-height:1.1;letter-spacing:-.015em;text-wrap:balance}
-  h3{font-family:var(--font-display);font-weight:400;font-size:1.45rem;line-height:1.2}
+  body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:1.0625rem;line-height:1.55;letter-spacing:-.011em;-webkit-font-smoothing:antialiased}
+  h2{font-family:var(--font-display);font-weight:600;font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.07;letter-spacing:-.03em;text-wrap:balance}
+  h3{font-family:var(--font-display);font-weight:600;font-size:1.4rem;line-height:1.2;letter-spacing:-.015em}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-  input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:2px;padding:12px 14px}
+  input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px 16px}
   textarea{min-height:120px;resize:vertical}
   input:focus-visible,select:focus-visible,textarea:focus-visible{outline-offset:1px;border-color:var(--accent)}
   [aria-invalid="true"]{border-color:var(--danger)}
@@ -53,29 +56,44 @@
 
 @layer components{
   /* Entrada de la portada: cada elemento usa --i (0, 1, 2...) para escalonarse */
-  .entra{animation:entrar .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 90ms)}
-  @media (prefers-reduced-motion:reduce){.entra{animation:none}}
+  .entra{animation:entrar 1s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 140ms)}
+  .entra-lado{animation-name:entrar-lado;animation-delay:.35s}
+
+  /* Aparece al hacer scroll: main.js agrega .visible. Sin JavaScript, todo se ve normal */
+  @supports (animation-timeline:view()){
+    .zoom-scroll{animation:zoom linear both;animation-timeline:view();animation-range:entry 0% entry 100%}
+    .progreso{animation:crece linear both;animation-timeline:scroll(root)}
+  }
+  .progreso{position:fixed;top:0;left:0;right:0;height:2px;z-index:30;background:var(--accent);transform-origin:left;transform:scaleX(0)}
+  .js .revela{opacity:0}
+  .js .revela.visible{opacity:1;animation:entrar .9s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--i,0) * 110ms)}
+  @media (prefers-reduced-motion:reduce){.entra,.js .revela.visible,.zoom-scroll,.progreso{animation:none}.js .revela{opacity:1}.progreso{display:none}}
 
   .wrap{width:100%;max-width:1200px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 
-  .eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--font-mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-  .eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
+  .eyebrow{font-size:1.05rem;font-weight:600;color:var(--accent)}
 
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:2px;border:1px solid transparent;font:500 .95rem/1.2 var(--font-body);letter-spacing:.01em;text-decoration:none;cursor:pointer;transition:filter .2s,border-color .2s}
-  .btn:hover{filter:brightness(1.1)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:980px;border:1px solid transparent;font:500 .95rem/1.2 var(--font-body);letter-spacing:.01em;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s,background-color .2s,color .2s,border-color .2s,filter .2s}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 8px 18px color-mix(in srgb,var(--accent) 35%,transparent)}
+  .btn:active{transform:translateY(0);box-shadow:none}
   .btn:disabled{opacity:.6;cursor:progress}
   .btn-primary{background:var(--accent);color:var(--accent-ink)}
-  .btn-ghost{background:transparent;color:var(--fg);border-color:var(--line)}
-  .btn-ghost:hover{border-color:var(--fg);filter:none}
-  .btn-sm{padding:9px 16px;font-size:.88rem}
+  .btn-primary:hover{filter:brightness(1.12)}
+  .btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+  .btn-ghost:hover{background:var(--accent);color:var(--accent-ink)}
+  .btn-sm{padding:8px 16px;font-size:.88rem}
 
-  .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--line);border-radius:2px;background:transparent;color:var(--fg);cursor:pointer;transition:border-color .2s}
+  .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--fg);cursor:pointer;transition:border-color .2s}
   .icon-btn:hover{border-color:var(--fg)}
 
   /* Menú: main.js agrega .open y .is-active */
   .nav{display:flex;align-items:center;gap:28px}
   .nav a.link{text-decoration:none;font-size:.92rem;color:var(--muted);transition:color .2s}
   .nav a.link:hover,.nav a.link.is-active{color:var(--fg)}
+  @media (min-width:861px){
+    .nav a.link{padding-bottom:4px;background:linear-gradient(var(--accent),var(--accent)) left bottom/0 2px no-repeat;transition:color .2s,background-size .3s}
+    .nav a.link:hover,.nav a.link.is-active{background-size:100% 2px}
+  }
   .nav-toggle{display:none}
   @media (max-width:860px){
     .nav-toggle{display:inline-flex}
@@ -92,4 +110,41 @@
   .form-status.ok{color:var(--accent)}
   .form-status.error{color:var(--danger)}
   .form-status a{color:inherit;text-decoration:underline}
+}
+
+@keyframes flota{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,50px) scale(1.2)}}
+@keyframes cinta{to{transform:translateX(-50%)}}
+@keyframes arma{0%{opacity:0;transform:translateY(16px) scale(.98)}6%,86%{opacity:1;transform:none}94%,100%{opacity:0;transform:translateY(-6px)}}
+@keyframes tipeo{0%{width:0}16%,86%{width:18ch}94%,100%{width:0}}
+@keyframes pulso{from{transform:scale(1);opacity:.7}to{transform:scale(1.7);opacity:0}}
+
+@layer components{
+  /* Orbes de luz de fondo */
+  .orbe{position:absolute;z-index:0;width:min(46vw,560px);aspect-ratio:1;border-radius:50%;filter:blur(90px);opacity:.22;pointer-events:none;animation:flota 14s ease-in-out infinite alternate}
+  :root[data-theme="dark"] .orbe{opacity:.3}
+  .orbe-a{top:-12%;left:-10%;background:var(--accent)}
+  .orbe-b{right:-12%;bottom:-25%;background:#5ac8fa;animation-delay:-6s}
+
+  /* Cinta de palabras */
+  .marquee{animation:cinta 40s linear infinite}
+  .marquee:hover{animation-play-state:paused}
+
+  /* Demo: ventana que arma una página */
+  .demo .b{animation:arma 9s infinite backwards;animation-delay:calc(var(--d,0) * 1s)}
+  .tipeo{display:inline-block;overflow:hidden;white-space:nowrap;vertical-align:bottom;width:0;border-right:2px solid #2997ff;animation:tipeo 9s steps(21) infinite backwards;animation-delay:.8s}
+
+  /* Brillo que sigue al cursor (main.js define --mx y --my) */
+  .glow{position:relative;overflow:hidden}
+  .glow::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 18%,transparent),transparent 65%)}
+  .glow:hover::after{opacity:1}
+
+  /* Botón flotante de WhatsApp */
+  .wa-flotante{position:fixed;z-index:25;right:max(20px,env(safe-area-inset-right,0px));bottom:max(20px,env(safe-area-inset-bottom,0px));display:grid;place-items:center;width:56px;height:56px;border-radius:999px;background:#25D366;color:#fff;box-shadow:0 12px 30px -8px rgba(37,211,102,.65);transition:transform .2s}
+  .wa-flotante:hover{transform:scale(1.1)}
+  .wa-flotante::before{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid #25D366;animation:pulso 2.4s ease-out infinite}
+
+  @media (prefers-reduced-motion:reduce){
+    .orbe,.marquee,.demo .b,.tipeo,.wa-flotante::before{animation:none}
+    .tipeo{width:auto;border:0}
+  }
 }

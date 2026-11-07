@@ -8,21 +8,22 @@
 <meta property="og:title" content="Alweb">
 <meta property="og:description" content="Diseñamos y programamos sitios web para negocios y profesionales: páginas de presentación, sitios institucionales y tiendas online.">
 <meta property="og:type" content="website">
-<script>try{var t=localStorage.getItem('tema');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}</script>
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('tema');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="static/css/style.css">
 <link rel="icon" type="image/svg+xml" href="static/img/favicon.svg">
 <script src="static/js/main.js" defer></script>
 </head>
 <body>
+<div class="progreso" aria-hidden="true"></div>
 
-<header class="sticky top-[env(safe-area-inset-top,0px)] z-20 border-b border-line bg-bg/90 backdrop-blur-[10px]">
-  <div class="wrap relative flex min-h-16 items-center justify-between gap-4">
-    <a class="inline-flex items-center gap-3 font-display text-[1.3rem] font-normal uppercase tracking-[.14em] no-underline" href="#inicio" aria-label="Alweb, ir al inicio">
+<header class="sticky top-[env(safe-area-inset-top,0px)] z-20 border-b border-line/50 bg-bg/70 backdrop-blur-xl backdrop-saturate-150">
+  <div class="wrap relative flex min-h-14 items-center justify-between gap-4">
+    <a class="inline-flex items-center gap-3 font-display text-[1.25rem] font-semibold tracking-[-.02em] no-underline" href="#inicio" aria-label="Alweb, ir al inicio">
       <svg class="h-[26px] w-[22px] flex-none" viewBox="0 0 22 26" fill="none" aria-hidden="true"><path d="M2 25V2h18v23" stroke="currentColor" stroke-width="2"/><path d="M7 25V9h8v16" stroke="var(--accent)" stroke-width="2"/></svg>
-      <span>Alweb</span><small class="font-mono text-[.66rem] tracking-[.1em] text-muted max-[480px]:hidden">Diseño web</small>
+      <span>Alweb</span><small class="font-mono text-[.8rem] text-muted max-[480px]:hidden">Diseño web</small>
     </a>
     <nav class="nav" id="menu" aria-label="Principal">
       <a class="link" href="#servicios">Servicios</a>
@@ -43,92 +44,124 @@
 </header>
 
 <main>
-  <section class="pt-[clamp(40px,7vw,88px)] pb-[clamp(48px,7vw,96px)]" id="inicio">
-    <div class="wrap grid grid-cols-1 items-center gap-[clamp(32px,5vw,72px)] min-[901px]:grid-cols-[minmax(0,.95fr)_minmax(0,1.05fr)]">
-      <div class="grid min-w-0 gap-7">
+  <section class="relative overflow-hidden pt-[clamp(40px,7vw,96px)] pb-[clamp(56px,8vw,112px)]" id="inicio">
+    <div class="orbe orbe-a" aria-hidden="true"></div>
+    <div class="orbe orbe-b" aria-hidden="true"></div>
+    <div class="wrap relative z-10 grid grid-cols-1 items-center gap-[clamp(36px,5vw,72px)] min-[981px]:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)]">
+      <div class="grid min-w-0 justify-items-start gap-6 text-left">
         <p class="eyebrow entra" style="--i:0">Diseño y desarrollo web</p>
-        <h1 class="entra font-display text-[clamp(2.6rem,6.2vw,4.9rem)] font-light leading-[1.02] tracking-[-.025em] text-balance" style="--i:1">Tu página, <em class="font-normal not-italic text-accent">tu estilo.</em></h1>
-        <p class="entra max-w-[50ch] text-[1.15rem] text-muted" style="--i:2">Sitios web claros, rápidos y bien terminados, para que te encuentren y te elijan.</p>
-        <div class="entra flex flex-wrap gap-3" style="--i:3">
+        <h1 class="entra font-display text-[clamp(2.8rem,5.8vw,5.2rem)] font-semibold leading-[1.02] tracking-[-.045em] text-balance" style="--i:1">Tu página, <em class="not-italic text-accent">tu estilo.</em></h1>
+        <p class="entra max-w-[38ch] text-[clamp(1.1rem,1.8vw,1.35rem)] leading-snug text-muted" style="--i:2">Sitios web claros, rápidos y bien terminados, para que te encuentren y te elijan.</p>
+        <div class="entra flex flex-wrap gap-4" style="--i:3">
           <a class="btn btn-primary" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20pedir%20una%20propuesta%20para%20mi%20p%C3%A1gina%20web." target="_blank" rel="noopener">Pedir una propuesta</a>
           <a class="btn btn-ghost" href="#proceso">Cómo trabajamos</a>
         </div>
-        <ul class="entra grid gap-2 border-t border-line pt-6 font-mono text-[.78rem] tracking-[.04em] text-muted" style="--i:4">
-          <li class="flex items-baseline gap-3 before:size-2 before:flex-none before:-translate-y-px before:bg-accent before:content-['']">Precio cerrado desde el primer día</li>
-          <li class="flex items-baseline gap-3 before:size-2 before:flex-none before:-translate-y-px before:bg-accent before:content-['']">Primera versión en 3 a 7 días</li>
+        <ul class="entra grid gap-2 text-[.95rem] text-muted" style="--i:4">
+          <li class="before:mr-2 before:text-accent before:content-['✓']">Precio cerrado desde el primer día</li>
+          <li class="before:mr-2 before:text-accent before:content-['✓']">Primera versión en 3 a 7 días</li>
         </ul>
       </div>
-      <div class="entra relative min-w-0 pr-3 pb-3" style="--i:2">
-        <div class="absolute top-3 right-0 bottom-0 left-3 border border-accent" aria-hidden="true"></div>
-        <img class="relative block h-auto w-full rounded" src="static/img/portada.jpg" width="1216" height="848" alt="Ejemplos de páginas web mostradas sobre un monitor">
+      <div class="entra entra-lado relative z-10 min-w-0">
+        <img data-tilt class="block h-auto w-full cursor-zoom-in rounded-[clamp(20px,3vw,32px)] shadow-[0_30px_80px_-30px_rgba(0,0,0,.35)] transition duration-300 ease-out hover:scale-[1.06] hover:shadow-[0_40px_90px_-30px_rgba(0,0,0,.45)]" src="static/img/portada.jpg" width="2432" height="1696" alt="Ejemplos de páginas web mostradas sobre un monitor">
       </div>
     </div>
   </section>
 
-  <section class="bg-bg2 py-[clamp(56px,9vw,112px)]" id="servicios">
+  <div class="overflow-hidden border-y border-line py-5" aria-hidden="true">
+    <div class="marquee flex w-max text-[clamp(1.15rem,2.4vw,1.75rem)] font-semibold tracking-tight text-muted"><div class="flex shrink-0 gap-12 pr-12"><span class="flex items-center gap-12">Páginas de presentación<i class="size-2 bg-accent"></i></span><span class="flex items-center gap-12">Sitios institucionales<i class="size-2 bg-accent"></i></span><span class="flex items-center gap-12">Tiendas online<i class="size-2 bg-accent"></i></span><span class="flex items-center gap-12">Rediseños<i class="size-2 bg-accent"></i></span><span class="flex items-center gap-12">Rápido en el celular<i class="size-2 bg-accent"></i></span><span class="flex items-center gap-12">Precio cerrado<i class="size-2 bg-accent"></i></span></div><div class="flex shrink-0 gap-12 pr-12"><span class="flex items-center gap-12">Páginas de presentación<i class="size-2 bg-accent"></i></span><span class="flex items-center gap-12">Sitios institucionales<i class="size-2 bg-accent"></i></span><span class="flex items-center gap-12">Tiendas online<i class="size-2 bg-accent"></i></span><span class="flex items-center gap-12">Rediseños<i class="size-2 bg-accent"></i></span><span class="flex items-center gap-12">Rápido en el celular<i class="size-2 bg-accent"></i></span><span class="flex items-center gap-12">Precio cerrado<i class="size-2 bg-accent"></i></span></div></div>
+  </div>
+
+  <section class="py-[clamp(72px,11vw,150px)]" id="servicios">
     <div class="wrap">
-      <div class="mb-[clamp(36px,5vw,64px)] grid max-w-[760px] gap-4">
+      <div class="revela mb-[clamp(40px,6vw,72px)] grid max-w-[760px] gap-4">
         <p class="eyebrow">Servicios</p>
         <h2>Cuatro tipos de sitio, según lo que necesites</h2>
       </div>
-      <div class="grid grid-cols-1 gap-x-[clamp(24px,4vw,64px)] gap-y-[clamp(28px,4vw,48px)] min-[761px]:grid-cols-2">
+      <div class="grid grid-cols-1 gap-5 min-[761px]:grid-cols-3">
 
-        <article class="grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 hover:border-accent">
+        <article style="--i:0" class="glow revela grid grid-rows-[auto_1fr_auto] gap-3 rounded-[28px] bg-bg2 p-8 min-[761px]:min-h-[250px] min-[761px]:col-span-2 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,.3)]">
           <h3>Página de presentación</h3>
           <p class="max-w-[48ch] text-muted">Una sola página con lo esencial: quién sos, qué hacés y cómo contactarte.</p>
-          <a class="mt-1 w-fit font-medium text-accent underline underline-offset-4 hover:no-underline" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20de%20presentaci%C3%B3n." target="_blank" rel="noopener">Consultar por esta</a>
+          <a class="mt-2 w-fit font-medium text-accent underline-offset-4 hover:underline" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20de%20presentaci%C3%B3n." target="_blank" rel="noopener">Consultar por esta</a>
         </article>
 
-        <article class="grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 hover:border-accent">
+        <article style="--i:1" class="glow revela grid grid-rows-[auto_1fr_auto] gap-3 rounded-[28px] bg-bg2 p-8 min-[761px]:min-h-[250px]  transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,.3)]">
           <h3>Sitio institucional</h3>
           <p class="max-w-[48ch] text-muted">Varias secciones para mostrar tu empresa, tus servicios y tu equipo.</p>
-          <a class="mt-1 w-fit font-medium text-accent underline underline-offset-4 hover:no-underline" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20consultar%20por%20un%20sitio%20institucional." target="_blank" rel="noopener">Consultar por este</a>
+          <a class="mt-2 w-fit font-medium text-accent underline-offset-4 hover:underline" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20consultar%20por%20un%20sitio%20institucional." target="_blank" rel="noopener">Consultar por este</a>
         </article>
 
-        <article class="grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 hover:border-accent">
+        <article style="--i:2" class="glow revela grid grid-rows-[auto_1fr_auto] gap-3 rounded-[28px] bg-bg2 p-8 min-[761px]:min-h-[250px]  transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,.3)]">
           <h3>Tienda online</h3>
           <p class="max-w-[48ch] text-muted">Un catálogo de productos para que tus clientes elijan y te consulten.</p>
-          <a class="mt-1 w-fit font-medium text-accent underline underline-offset-4 hover:no-underline" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20consultar%20por%20una%20tienda%20online." target="_blank" rel="noopener">Consultar por esta</a>
+          <a class="mt-2 w-fit font-medium text-accent underline-offset-4 hover:underline" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20consultar%20por%20una%20tienda%20online." target="_blank" rel="noopener">Consultar por esta</a>
         </article>
 
-        <article class="grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 hover:border-accent">
+        <article style="--i:3" class="glow revela grid grid-rows-[auto_1fr_auto] gap-3 rounded-[28px] bg-bg2 p-8 min-[761px]:min-h-[250px] min-[761px]:col-span-2 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,.3)]">
           <h3>Rediseño de tu sitio</h3>
           <p class="max-w-[48ch] text-muted">Renovamos tu sitio actual para que se vea mejor, cargue rápido y se lea bien en el celular.</p>
-          <a class="mt-1 w-fit font-medium text-accent underline underline-offset-4 hover:no-underline" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20consultar%20por%20el%20redise%C3%B1o%20de%20mi%20sitio%20actual." target="_blank" rel="noopener">Consultar por este</a>
+          <a class="mt-2 w-fit font-medium text-accent underline-offset-4 hover:underline" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20consultar%20por%20el%20redise%C3%B1o%20de%20mi%20sitio%20actual." target="_blank" rel="noopener">Consultar por este</a>
         </article>
 
       </div>
     </div>
   </section>
 
-  <section class="py-[clamp(56px,9vw,112px)]" id="proceso">
+  <section class="relative overflow-hidden bg-[#0b0b0d] py-[clamp(72px,11vw,150px)] text-[#f5f5f7]" id="demo">
+    <div class="orbe orbe-a" aria-hidden="true"></div>
+    <div class="wrap relative z-10 grid grid-cols-1 items-center gap-[clamp(36px,6vw,88px)] min-[901px]:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)]">
+      <div class="revela grid justify-items-start gap-5">
+        <p class="eyebrow text-[#2997ff]">En vivo</p>
+        <h2>Mirá cómo toma forma tu sitio</h2>
+        <p class="max-w-[42ch] text-[#a1a1a6]">De una página en blanco a un sitio completo: título, imagen, botones y secciones, armados a tu medida.</p>
+        <a class="btn btn-primary mt-2" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20que%20armen%20mi%20p%C3%A1gina%20web." target="_blank" rel="noopener">Quiero el mío</a>
+      </div>
+      <div class="revela" style="--i:2" aria-hidden="true">
+        <div class="demo overflow-hidden rounded-2xl border border-white/10 bg-[#161618] shadow-[0_40px_100px_-30px_rgba(41,151,255,.4)]">
+          <div class="flex items-center gap-2 border-b border-white/10 px-4 py-3">
+            <i class="size-3 rounded-full bg-[#ff5f57]"></i><i class="size-3 rounded-full bg-[#febc2e]"></i><i class="size-3 rounded-full bg-[#28c840]"></i>
+            <span class="ml-3 flex-1 rounded-md bg-white/10 px-3 py-1 text-[.8rem] text-[#a1a1a6]">tunegocio.com</span>
+          </div>
+          <div class="grid gap-5 p-5 min-[560px]:p-8">
+            <div class="b flex items-center justify-between" style="--d:0"><span class="h-3 w-20 rounded bg-white/30"></span><span class="flex gap-2"><span class="h-2 w-10 rounded bg-white/15"></span><span class="h-2 w-10 rounded bg-white/15"></span><span class="h-2 w-10 rounded bg-white/15"></span></span></div>
+            <p class="b text-[clamp(1.3rem,3.4vw,2.2rem)] font-semibold tracking-tight" style="--d:.8"><span class="tipeo">Tu página, tu estilo.</span></p>
+            <div class="b h-3 w-2/3 rounded bg-white/15" style="--d:1.8"></div>
+            <div class="b flex gap-3" style="--d:2.6"><span class="h-9 w-32 rounded-full bg-[#0071e3]"></span><span class="h-9 w-24 rounded-full border border-[#2997ff]"></span></div>
+            <div class="b grid grid-cols-3 gap-3" style="--d:3.4"><span class="aspect-[4/3] rounded-xl bg-gradient-to-br from-[#2997ff]/40 to-white/5"></span><span class="aspect-[4/3] rounded-xl bg-gradient-to-br from-white/20 to-white/5"></span><span class="aspect-[4/3] rounded-xl bg-gradient-to-br from-[#5ac8fa]/30 to-white/5"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg2 py-[clamp(72px,11vw,150px)]" id="proceso">
     <div class="wrap">
-      <div class="mb-[clamp(36px,5vw,64px)] grid max-w-[760px] gap-4">
+      <div class="revela mb-[clamp(40px,6vw,72px)] grid max-w-[760px] gap-4">
         <p class="eyebrow">Cómo trabajamos</p>
         <h2>De la idea a tu sitio publicado, en cuatro etapas</h2>
       </div>
       <div class="grid grid-cols-1 gap-[clamp(24px,3vw,40px)] min-[561px]:grid-cols-2 min-[981px]:grid-cols-4">
 
-        <article class="relative grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 before:absolute before:-top-[5px] before:left-0 before:size-[9px] before:bg-accent before:transition-all before:duration-300 before:content-[''] hover:border-accent hover:before:-top-[7px] hover:before:size-[15px]">
-          <div class="flex justify-between gap-3 font-mono text-[.74rem] uppercase tracking-[.1em] text-accent"><span>01</span><span>1 a 3 días</span></div>
+        <article style="--i:0" class="glow revela grid content-start gap-3 rounded-[28px] bg-surface p-8 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,.3)]">
+          <div class="flex items-baseline justify-between gap-3 text-[.92rem] font-medium text-accent"><span class="text-5xl leading-none font-semibold tracking-tight">01</span><span>1 a 3 días</span></div>
           <h3>Terreno</h3>
           <p class="text-muted">Charlamos sobre tu negocio, tus ideas y colores, y acordamos un precio cerrado.</p>
         </article>
 
-        <article class="relative grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 before:absolute before:-top-[5px] before:left-0 before:size-[9px] before:bg-accent before:transition-all before:duration-300 before:content-[''] hover:border-accent hover:before:-top-[7px] hover:before:size-[15px]">
-          <div class="flex justify-between gap-3 font-mono text-[.74rem] uppercase tracking-[.1em] text-accent"><span>02</span><span>4 a 5 días</span></div>
+        <article style="--i:1" class="glow revela grid content-start gap-3 rounded-[28px] bg-surface p-8 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,.3)]">
+          <div class="flex items-baseline justify-between gap-3 text-[.92rem] font-medium text-accent"><span class="text-5xl leading-none font-semibold tracking-tight">02</span><span>4 a 5 días</span></div>
           <h3>Planos</h3>
           <p class="text-muted">Ordenamos tus textos e imágenes. Lo revisás antes de diseñar.</p>
         </article>
 
-        <article class="relative grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 before:absolute before:-top-[5px] before:left-0 before:size-[9px] before:bg-accent before:transition-all before:duration-300 before:content-[''] hover:border-accent hover:before:-top-[7px] hover:before:size-[15px]">
-          <div class="flex justify-between gap-3 font-mono text-[.74rem] uppercase tracking-[.1em] text-accent"><span>03</span><span>1 a 2 semanas</span></div>
+        <article style="--i:2" class="glow revela grid content-start gap-3 rounded-[28px] bg-surface p-8 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,.3)]">
+          <div class="flex items-baseline justify-between gap-3 text-[.92rem] font-medium text-accent"><span class="text-5xl leading-none font-semibold tracking-tight">03</span><span>1 a 2 semanas</span></div>
           <h3>Obra</h3>
           <p class="text-muted">Diseñamos y programamos, y te mostramos avances en un enlace de prueba.</p>
         </article>
 
-        <article class="relative grid content-start gap-3 border-t border-line pt-7 transition-colors duration-300 before:absolute before:-top-[5px] before:left-0 before:size-[9px] before:bg-accent before:transition-all before:duration-300 before:content-[''] hover:border-accent hover:before:-top-[7px] hover:before:size-[15px]">
-          <div class="flex justify-between gap-3 font-mono text-[.74rem] uppercase tracking-[.1em] text-accent"><span>04</span><span>2 días</span></div>
+        <article style="--i:3" class="glow revela grid content-start gap-3 rounded-[28px] bg-surface p-8 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,.3)]">
+          <div class="flex items-baseline justify-between gap-3 text-[.92rem] font-medium text-accent"><span class="text-5xl leading-none font-semibold tracking-tight">04</span><span>2 días</span></div>
           <h3>Entrega</h3>
           <p class="text-muted">Publicamos tu página, la probamos en celulares y computadoras, y te mandamos el link y el QR.</p>
         </article>
@@ -137,42 +170,42 @@
     </div>
   </section>
 
-  <section class="bg-bg2 py-[clamp(56px,9vw,112px)]" id="preguntas">
+  <section class="py-[clamp(72px,11vw,150px)]" id="preguntas">
     <div class="wrap grid grid-cols-1 items-start gap-[clamp(36px,6vw,96px)] min-[901px]:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
-      <div class="grid max-w-[760px] gap-4">
+      <div class="revela grid max-w-[760px] gap-4">
         <p class="eyebrow">Preguntas frecuentes</p>
         <h2>Lo que suelen preguntarnos antes de empezar</h2>
       </div>
       <div class="grid">
-          <details class="group border-t border-line py-5 last:border-b">
+          <details style="--i:0" class="revela group border-t border-line py-5 last:border-b">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[1.25rem] [&::-webkit-details-marker]:hidden">
               ¿Cuánto cuesta?
               <span class="flex-none font-mono text-accent transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
             <p class="mt-3 max-w-[60ch] text-muted">Acordamos un precio cerrado antes de empezar, así sabés cuánto es desde el primer día. Contanos tu idea por WhatsApp y te pasamos una propuesta.</p>
           </details>
-          <details class="group border-t border-line py-5 last:border-b">
+          <details style="--i:1" class="revela group border-t border-line py-5 last:border-b">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[1.25rem] [&::-webkit-details-marker]:hidden">
               ¿Cuánto tarda?
               <span class="flex-none font-mono text-accent transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
             <p class="mt-3 max-w-[60ch] text-muted">La primera versión llega en 3 a 7 días, en un enlace de prueba. El tiempo total depende de cuántas páginas tenga el sitio y de qué tan rápido nos pases textos e imágenes.</p>
           </details>
-          <details class="group border-t border-line py-5 last:border-b">
+          <details style="--i:2" class="revela group border-t border-line py-5 last:border-b">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[1.25rem] [&::-webkit-details-marker]:hidden">
               ¿Tengo que tener los textos y las fotos listos?
               <span class="flex-none font-mono text-accent transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
             <p class="mt-3 max-w-[60ch] text-muted">No hace falta que estén perfectos. En la etapa Planos los ordenamos y los revisás antes de que empecemos a diseñar.</p>
           </details>
-          <details class="group border-t border-line py-5 last:border-b">
+          <details style="--i:3" class="revela group border-t border-line py-5 last:border-b">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[1.25rem] [&::-webkit-details-marker]:hidden">
               ¿Se va a ver bien en el celular?
               <span class="flex-none font-mono text-accent transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
             <p class="mt-3 max-w-[60ch] text-muted">Sí. Antes de entregar, probamos la página en celulares y en computadoras.</p>
           </details>
-          <details class="group border-t border-line py-5 last:border-b">
+          <details style="--i:4" class="revela group border-t border-line py-5 last:border-b">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[1.25rem] [&::-webkit-details-marker]:hidden">
               ¿Cómo empiezo?
               <span class="flex-none font-mono text-accent transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
@@ -183,10 +216,10 @@
     </div>
   </section>
 
-  <section class="py-[clamp(56px,9vw,112px)]" id="contacto">
+  <section class="bg-bg2 py-[clamp(72px,11vw,150px)]" id="contacto">
     <div class="wrap grid grid-cols-1 items-start gap-[clamp(36px,6vw,96px)] min-[901px]:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
       <div>
-        <div class="mb-8 grid max-w-[760px] gap-4">
+        <div class="revela mb-8 grid max-w-[760px] gap-4">
           <p class="eyebrow">Contacto</p>
           <h2>Contanos qué querés construir</h2>
           <p class="max-w-[56ch] text-muted">Escribinos con una idea general y te respondemos por WhatsApp.</p>
@@ -194,7 +227,7 @@
         <div class="grid">
           <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2.5 border-y border-line py-3.5">
             <div>
-              <span class="block font-mono text-[.7rem] uppercase tracking-[.12em] text-muted">WhatsApp</span>
+              <span class="block font-mono text-[.85rem] font-medium text-muted">WhatsApp</span>
               <a class="break-words font-display text-[1.25rem] no-underline hover:text-accent" href="https://wa.me/541138599781" target="_blank" rel="noopener">+54 911 3859 9781</a>
             </div>
             <a class="btn btn-primary btn-sm" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">Abrir chat</a>
@@ -202,20 +235,20 @@
         </div>
       </div>
 
-      <form id="form-contacto" class="relative grid min-w-0 gap-[18px] rounded-xs border border-line bg-surface p-[clamp(22px,3vw,36px)]" data-wa="https://wa.me/541138599781" novalidate>
+      <form id="form-contacto" class="revela relative grid min-w-0 gap-[18px] rounded-[28px] bg-surface p-[clamp(24px,4vw,44px)]" data-wa="https://wa.me/541138599781" novalidate>
         <div class="grid gap-2">
-          <label class="font-mono text-[.72rem] uppercase tracking-[.12em] text-muted" for="f-nombre">Tu nombre</label>
+          <label class="font-mono text-[.88rem] font-medium text-muted" for="f-nombre">Tu nombre</label>
           <input id="f-nombre" name="nombre" type="text" autocomplete="name" maxlength="80" placeholder="Cómo te llamás" aria-describedby="e-nombre">
           <p class="error" id="e-nombre" hidden></p>
         </div>
         <div class="grid gap-2">
-          <label class="font-mono text-[.72rem] uppercase tracking-[.12em] text-muted" for="f-tipo">Qué necesitás</label>
+          <label class="font-mono text-[.88rem] font-medium text-muted" for="f-tipo">Qué necesitás</label>
           <select id="f-tipo" name="tipo">
             <option>Una página de presentación</option><option>Un sitio institucional</option><option>Una tienda online</option><option>Rediseñar mi sitio actual</option><option>Todavía no lo sé</option>
           </select>
         </div>
         <div class="grid gap-2">
-          <label class="font-mono text-[.72rem] uppercase tracking-[.12em] text-muted" for="f-mensaje">Contanos tu proyecto</label>
+          <label class="font-mono text-[.88rem] font-medium text-muted" for="f-mensaje">Contanos tu proyecto</label>
           <textarea id="f-mensaje" name="mensaje" maxlength="1000" placeholder="A qué te dedicás, qué querés lograr y para cuándo lo necesitás" aria-describedby="e-mensaje"></textarea>
           <p class="error" id="e-mensaje" hidden></p>
         </div>
@@ -233,6 +266,10 @@
     <a class="no-underline hover:text-fg" href="#inicio">Volver arriba</a>
   </div>
 </footer>
+
+<a class="wa-flotante" href="https://wa.me/541138599781?text=Hola%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.2A8.4 8.4 0 1 1 21 11.5z"/></svg>
+</a>
 
 </body>
 </html>
